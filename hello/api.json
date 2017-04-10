@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "dependencies": {
+    "libhello": {
+      "version": "1.0.0",
+      "type": "shared",
+      "functions": {
+        "hello": {
+          "std": 89,          
+          "params": [ ],
+          "result": "char *",
+          "descr": "returns a string \"Hello, World\""
+        }
+      }
+    },
+    "libgoodbye": {
+      "version": "1.0.0",
+      "type": "static",
+      "functions": {
+        "goodbye" : {
+          "std": 89,            
+          "params": [ ],
+          "result": "char *",
+          "descr": "returns a string \"Goodbye, World\""
+        }
+      }
+    }
+  }
+}
