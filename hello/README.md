@@ -7,6 +7,7 @@ Develop a program which displays **Hello, World\nGoodbye, World\n**. The program
 ### Requirements
 * `Makefile` - the file describing an assembly
 * `main.c` - the main source program code
+* `goodbye.h` - the static library header file
 * `hello.c` - the shared library source code, returning *Hello, World*
 * `goodbye.c` - the static library source code, returning *Goodbye, World*
 

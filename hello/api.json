@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "libhello": {
       "version": "1.0.0",
@@ -9,19 +9,19 @@
           "std": 89,          
           "params": [ ],
           "result": "char *",
-          "descr": "returns a string \"Hello, World\""
+          "descr": "returns the string \"Hello, World\""
         }
       }
     },
-    "libgoodbye": {
-      "version": "1.0.0",
-      "type": "static",
+  },
+  "headers": {
+    "goodbye": {
       "functions": {
         "goodbye" : {
           "std": 89,            
           "params": [ ],
           "result": "char *",
-          "descr": "returns a string \"Goodbye, World\""
+          "descr": "returns the  string \"Goodbye, World\""
         }
       }
     }

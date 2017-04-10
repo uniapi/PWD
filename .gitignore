@@ -6,6 +6,3 @@
 
 # Dynamic libraries
 *.so
-
-# Program executable
-hello

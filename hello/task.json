@@ -4,8 +4,9 @@
   "Requirements": [
     "Makefile - the file describing an assembly",
     "main.c - the main source program code",
-    "hello.c - the library source code, returning \"Hello, World\"",
-    "goodbye.c - the library source code, returning \"Goodbye, World\""
+    "goodbye.h - the static library header file",
+    "hello.c - the shared library source code, returning \"Hello, World\"",
+    "goodbye.c - the static library source code, returning \"Goodbye, World\""
    ],
   "Assembly": [
     "make - runs { make all }",
