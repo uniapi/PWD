@@ -1,0 +1,16 @@
+This Software Follows *Semantic Versioning Specification* [SemVer](http://semver.org/)
+
+# © Promwad Trainee Job
+## Task
+Write a `shell script` program displaying the gold currency course once per N seconds. The program should get courses downloading from the website of [**Gold Price®**](http://goldprice.org/). The time period should be set in a text file. Setting a currency notation is optional
+
+### Requirements
+* `goldwatch.sh` - the script displaying a course
+* `config.ini` - the configuration file, setting a currency output period and an optional currency notation
+
+### Version
+* The working code should reside in the **shell branch**
+* No less than two git commits and push to `© GitHub`
+
+### Tips
+* You can use { `wget` } to download the page, { `grep` } to search the line and { `sed` } to search or replace the text
