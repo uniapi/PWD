@@ -1,0 +1,305 @@
+{
+  "license": {
+    "type": "AFL-3.0",
+    "url": "https://opensource.org/licenses/AFL-3.0"
+  },
+  "author": {
+    "name": "Ali Muhammed",
+    "email": [ "patrash.ali@promwad.com", "uniapi@outlook.com" ]
+  },
+  "version": "v1.0.0",
+  "dependencies": {
+    "floatjet": {
+      "version": "v1.0.0",
+      "type": "archive",
+      "headers": {
+        "floatjet": {
+          "types": {
+            "floage": {
+              "def": "typedef double",
+              "fields": [ ],
+              "descr": ""
+            },
+            "cmbid": {
+              "def": "typedef int",
+              "fields": [ ],
+              "descr": ""
+            },
+            "ioput": {
+              "def": "typedef enum",
+              "fields": {
+                "INPUT": "(int) 0",
+                "OUTPUT": "(int) 1"
+              },
+              "descr": ""
+            },
+            "floatjet": {
+              "def": "extern char *[]",
+              "fields": [ ],
+              "descr": ""
+            }
+          }
+        },
+        "ctlact": {
+          "types": {
+            "ctlact": {
+              "def": "typedef struct",
+              "fields": {
+                "ctl": "char [8]",
+                "act": "int (*)(void *data)"
+              },
+              "descr": "the control mechanism setting an action associated with the specified control sequence"
+            }
+          }
+        },
+        "synchronizer": {
+          "types": {
+            "synchronizer": {
+              "def": "typedef pthread_mutex_t",
+              "fieldes": [ ],
+              "descr": "the synchronizing mechanism between two working elements of floatjet"
+            }
+          }
+        },
+        "flaps": {
+          "defines": {
+            "FLOWLIM": "DBL_DIG"
+          },
+          "types": {
+            "flaps": {
+              "def": "typedef struct",
+              "fields": {
+                "n": "int",
+                "x": "int",
+                "flow": "char [FLOWLIM]",
+                "ctls": "ctlact *"
+              },
+              "descr": "the flaps of floatjet"
+            }
+          },
+          "functions": {
+            "flpget": {
+              "std": 89,
+              "params": {
+                "ctls": "ctlact *"
+              },
+              "result": "flaps *",
+              "descr": "gets the flaps and sets the control actions"
+            },
+            "flprem": {
+              "std": 89,
+              "params": {
+                "flp": "flaps *"
+              },
+              "result": "void",
+              "descr": "removes the control actions and the flaps"
+            }
+          }
+        },
+        "inlet": {
+          "types": {
+            "inlet": {
+              "def": "typedef struct",
+              "fields": {
+                "in": "int",
+                "out": "int"
+              },
+              "descr": "the inlet of floatjet"
+            }
+          },
+          "functions": {
+            "inlseal": {
+              "std": 89,
+              "params": {
+                "inl": "inlet *",
+                "io": "ioput"
+              },
+              "result": "int",
+              "descr": "seals the inlet from the working element of floatjet"
+            }
+          }
+        },
+        "floatidizer": {
+          "types": {
+            "floatidizer": {
+              "def": "typdef struct",
+              "fields": {
+                "exponent": "double",
+                "floatygen": "floage"
+              },
+              "descr": "the floatidization making element of floatjet"
+            }
+          },
+          "functions": {
+            "floatidize": {
+              "std": 89,
+              "params": {
+                "flt": "floatidizer *"
+              },
+              "result": "floage",
+              "descr": "floatidizes the floatygen"
+            }
+          }
+        },
+        "combustor": {
+          "types": {
+            "cmbid": {
+              "def": "typedef int",
+              "fields": [ ],
+              "descr": "the serial combustor identicifation number"
+            },
+            "floage": {
+              "def": "typedef double",
+              "fields": [ ],
+              "descr": "the unit measure of floatygen"
+            },
+            "combustor": {
+              "def": "typedef struct",
+              "fields": {
+                "id": "cmbid",
+                "sync": "synchronizer",
+                "injected": "int",
+                "floatygen": "floage"
+              },
+              "descr": "the combustion chamber of floatjet"
+            }
+          },
+          "functions": {
+            "cmbat": {
+              "std": 89,
+              "params": {
+                "cid": "cmbid"
+              },
+              "result": "combustor *",
+              "descr": "attaches the working floatjet element to the combustor"
+            },
+            "cmbpre": {
+              "std": 89,
+              "params": {
+                "cmb": "combustor *"
+              },
+              "result": "combustor *",
+              "descr": "prepares the combustor for synchronized injection-ignition usage"
+            },
+            "cmbdt": {
+              "std": 89,
+              "params": {
+                "cmb": "combustor *"
+              },
+              "result": "cmbid",
+              "descr": "detaches the working floatjet element from the combustor"
+            }
+          }
+        },
+        "nozzle": {
+          "types": {
+            "nozzle": {
+              "def": "typedef struct",
+              "fields": {
+                "sync": "synchronizer",
+                "ignited": "int",
+                "floatygen": "floage"
+              },
+              "descr": "a nozzle of the floatjet"
+            }
+          },
+          "functions": {
+            "nzlpre": {
+              "std": 89,
+              "params": {
+                "nzl": "nozzle *"
+              },
+              "result": "nozzle *",
+              "descr": "prepares the nozzle"
+            }
+          }
+        },
+        "mixture": {
+          "functions": {
+            "diffuse": {
+              "std": 89,
+              "params": {
+                "inl": "inlet *",
+                "flt": "floatidizer *"
+              },
+              "result": "",
+              "descr": ""
+            },
+            "inject": {
+              "std": 89,
+              "params": {
+                "flt": "floatidizer *",
+                "cmb": "combustor *"
+              },
+              "result": "",
+              "descr": ""
+            }
+          }
+        }
+      }
+    },
+    "floatjware": {
+      "version": "v1.0.0",
+      "type": "archive",
+      "headers": {
+        "flpware": {
+          "functions": {
+            "flpget": {
+              "std": 89,
+              "params": {
+                "ctls": "ctlact *"
+              },
+              "result": "flaps *",
+              "descr": ""
+            },
+            "flprem": {
+              "std": 89,
+              "params": {
+              },
+              "result": "void",
+              "descr": ""
+            }
+          }
+        },
+        "inlware": {
+          "functions": {
+            "inlget": {
+              "std": 89,
+              "params": [ ],
+              "result": "inlet *",
+              "descr": "gets the inlet"
+            },
+            "inlrem": {
+              "std": 89,
+              "params": {
+                "inl": "inlet *"
+              },
+              "result": "void",
+              "descr": "removes the inlet"
+            },
+          }
+        },
+        "cmbware": {
+          "functions": {
+            "cmbget": {
+              "std": 89,
+              "params": [ ],
+              "result": "cmbid",
+              "descr": "gets the combustor"
+            },
+            "cmbrem": {
+              "std": 89,
+              "params": {
+                "cmb": "combustor *"
+              },
+              "result": "void",
+              "descr": "removes the combustor"
+            }
+          }
+        }
+      }
+    }
+  },
+  "headers": {
+  }
+}
