@@ -19,7 +19,8 @@ main(int argc, char *argv[])
 	char c;
 	envon();
 
-	puts("[not implemented]");
+	puts("[alpha implementation]");
+	puts("exiting...");
 
 	envoff();
 	return 0;
